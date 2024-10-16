@@ -2,6 +2,7 @@ import tkinter as tk
 import requests
 import json
 import urllib.parse
+import webbrowser
 
 results = []
 
@@ -62,7 +63,7 @@ def details_selected():
     if selected_index:
         selected_item = results_listbox.get(selected_index)
         item_id = selected_item.split(" - ID=")[-1]
-        print(f"Showing details item with ID: {item_id}")
+        webbrowser.open("https://apps.microsoft.com/detail/" + item_id)
 
 install_button = tk.Button(button_frame, text="Install", command=install_selected_item)
 install_button.pack(side=tk.LEFT, padx=5)
