@@ -3,15 +3,16 @@ import requests
 import json
 import urllib.parse
 
+results = []
 
 def searchstore(query):
     request = requests.get("https://storeedgefd.dsx.mp.microsoft.com/v9.0/pages/searchResults?market=US&locale=en-US&deviceFamily=windows.desktop&query=" + urllib.parse.quote(query))
     response = request.text
     json_response = json.loads(response)
-    results = []
+    searchresults = []
     for i in json_response[1]["Payload"]["SearchResults"]:
-        results.append({"id": i["ProductId"], "title": i["Title"]})
-    return results
+        searchresults.append({"id": i["ProductId"], "title": i["Title"]})
+    return searchresults
 
 def search():
     query = entry.get()
