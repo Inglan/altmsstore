@@ -24,7 +24,7 @@ def search():
         results_listbox.insert(tk.END, result["title"] + " - ID=" + result["id"])
 
 root = tk.Tk()
-root.title("SchoolStore")
+root.title("AltMSStore")
 
 frame = tk.Frame(root)
 frame.pack(pady=10)
