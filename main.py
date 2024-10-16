@@ -1,8 +1,10 @@
 import tkinter as tk
+import msstore
 
 def search():
     query = entry.get()
     print(f"Searching for: {query}")
+    msstore.search(query)
 
 root = tk.Tk()
 root.title("Simple TK App with Search")
