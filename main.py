@@ -7,7 +7,7 @@ def search():
     msstore.search(query)
 
 root = tk.Tk()
-root.title("Simple TK App with Search")
+root.title("SchoolStore")
 
 frame = tk.Frame(root)
 frame.pack(pady=10)
