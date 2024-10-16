@@ -10,14 +10,16 @@ def search(query):
     json_response = json.loads(response)
     results = []
     for i in json_response[1]["Payload"]["SearchResults"]:
-        print(str(i["ProductId"]))
-        print(str(i["Title"]))
-
+        results.append({id: i["ProductId"], title: i["Title"]})
+    return results
 
 def search():
     query = entry.get()
     print(f"Searching for: {query}")
-    search(query)
+    results = search(query)
+    results_listbox.delete(0, tk.END)
+    for result in results:
+        results_listbox.insert(tk.END, result["title"])
 
 root = tk.Tk()
 root.title("SchoolStore")
