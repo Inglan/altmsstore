@@ -4,7 +4,7 @@ import json
 import urllib.parse
 
 
-def search(query):
+def searchstore(query):
     request = requests.get("https://storeedgefd.dsx.mp.microsoft.com/v9.0/pages/searchResults?market=US&locale=en-US&deviceFamily=windows.desktop&query=" + urllib.parse.quote(query))
     response = request.text
     json_response = json.loads(response)
@@ -16,7 +16,7 @@ def search(query):
 def search():
     query = entry.get()
     print(f"Searching for: {query}")
-    results = search(query)
+    results = searchstore(query)
     results_listbox.delete(0, tk.END)
     for result in results:
         results_listbox.insert(tk.END, result["title"])
