@@ -10,7 +10,7 @@ def searchstore(query):
     json_response = json.loads(response)
     results = []
     for i in json_response[1]["Payload"]["SearchResults"]:
-        results.append({id: i["ProductId"], title: i["Title"]})
+        results.append({"id": i["ProductId"], "title": i["Title"]})
     return results
 
 def search():
