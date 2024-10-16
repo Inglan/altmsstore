@@ -31,4 +31,17 @@ entry.pack(side=tk.LEFT, padx=10)
 search_button = tk.Button(frame, text="Search", command=search)
 search_button.pack(side=tk.LEFT)
 
+# results
+results_frame = tk.Frame(root)
+results_frame.pack(pady=10)
+
+results_listbox = tk.Listbox(results_frame, width=100, height=20)
+results_listbox.pack(side=tk.LEFT, fill=tk.BOTH)
+
+scrollbar = tk.Scrollbar(results_frame)
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+results_listbox.config(yscrollcommand=scrollbar.set)
+scrollbar.config(command=results_listbox.yview)
+
 root.mainloop()
