@@ -65,7 +65,7 @@ def details_selected():
         item_id = selected_item.split(" - ID=")[-1]
         webbrowser.open("https://apps.microsoft.com/detail/" + item_id)
 
-install_button = tk.Button(button_frame, text="Install", command=install_selected_item)
+install_button = tk.Button(button_frame, text="Donwload", command=install_selected_item, background="#00FF00", font="Serif", activebackground="#00FF00", activeforeground="#00FF00", width=50)
 install_button.pack(side=tk.LEFT, padx=5)
 
 details_button = tk.Button(button_frame, text="Details", command=details_selected)
