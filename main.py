@@ -20,7 +20,7 @@ def search():
     results = searchstore(query)
     results_listbox.delete(0, tk.END)
     for result in results:
-        results_listbox.insert(tk.END, result["title"])
+        results_listbox.insert(tk.END, result["title"] + " - ID=" + result["id"])
 
 root = tk.Tk()
 root.title("SchoolStore")
@@ -46,5 +46,28 @@ scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
 results_listbox.config(yscrollcommand=scrollbar.set)
 scrollbar.config(command=results_listbox.yview)
+
+button_frame = tk.Frame(root)
+button_frame.pack(pady=10)
+
+def install_selected_item():
+    selected_index = results_listbox.curselection()
+    if selected_index:
+        selected_item = results_listbox.get(selected_index)
+        item_id = selected_item.split(" - ID=")[-1]
+        print(f"Installing item with ID: {item_id}")
+
+def details_selected():
+    selected_index = results_listbox.curselection()
+    if selected_index:
+        selected_item = results_listbox.get(selected_index)
+        item_id = selected_item.split(" - ID=")[-1]
+        print(f"Showing details item with ID: {item_id}")
+
+install_button = tk.Button(button_frame, text="Install", command=install_selected_item)
+install_button.pack(side=tk.LEFT, padx=5)
+
+details_button = tk.Button(button_frame, text="Details", command=details_selected)
+details_button.pack(side=tk.LEFT, padx=5)
 
 root.mainloop()
